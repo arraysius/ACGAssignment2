@@ -2,7 +2,7 @@
 <%@ page import ="org.mindrot.jbcrypt.*" %>
 <html>
 <head>
-<title>Insert title here</title>
+<title>processUser</title>
 </head>
 <body>
 <%
