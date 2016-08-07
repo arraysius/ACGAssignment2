@@ -21,7 +21,7 @@ ResultSet rs = pstmt.executeQuery();
 while (rs.next()) {
 	String dbpassword = rs.getString("hashedPassword");
 	if (BCrypt.checkpw(password, dbpassword)) {
-    out.println("Welcome + " + username + "!<br>Your IP address is " + request.getRemoteAddr());
+    out.println("Welcome " + username + "!<br>Your IP address is " + request.getRemoteAddr());
 	} else {
 		out.println("Login Failed");
 	}
