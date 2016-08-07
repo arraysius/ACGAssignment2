@@ -4,8 +4,9 @@
 </head>
 <body>
 <%
-String name = test_input(request.getParameter("name"));
-String email = test_input(request.getParameter("email"));
+	// Requires Apache Commons Lang 3.4
+	String name = test_input(request.getParameter("name"));
+	String email = test_input(request.getParameter("email"));
 
 	out.println("Welcome " + name + "<br />");
 	out.println("Your email address is: " + email);

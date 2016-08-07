@@ -10,6 +10,7 @@
 <%@ page import="java.nio.file.Paths" %>
 <%@ page import="java.security.MessageDigest" %>
 <%
+	// Requires Apache Commons Lang 3.4
 	try {
 		// Get client IP address
 		String clientIP = request.getRemoteAddr();
