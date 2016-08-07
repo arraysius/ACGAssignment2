@@ -6,6 +6,7 @@
 </head>
 <body>
 <%
+// Requires jBCrypt
 Class.forName("com.mysql.jdbc.Driver");
 String connURL = "jdbc:mysql://localhost/test?user=root&password=password";
 Connection conn = DriverManager.getConnection(connURL);
