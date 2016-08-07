@@ -6,6 +6,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -19,7 +20,7 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.cert.*;
 
-public class HttpURLClient {
+public class HttpURLClientNew {
 
 	private String serverAddress;
 	private final String USER_AGENT = "Mozilla/5.0";
@@ -29,11 +30,11 @@ public class HttpURLClient {
 	public static void main(String[] args) throws Exception {
 		// Check arguments
 		if (args.length != 1) {
-			System.out.println("Usage: java HttpURLClient IP_ADDR");
+			System.out.println("Usage: java HttpURLClientNew <IP_ADDR>");
 			return;
 		}
 
-		HttpURLClient http = new HttpURLClient();
+		HttpURLClientNew http = new HttpURLClientNew();
 		http.serverAddress = args[0];
 
 		http.negotiateKey();
@@ -262,7 +263,15 @@ public class HttpURLClient {
 		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
 		// Encrypt parameters
-		String parameters = "name=hello&email=world";
+		String name = JOptionPane.showInputDialog(null,
+				"Enter your name",
+				"Name",
+				JOptionPane.INFORMATION_MESSAGE);
+		String email = JOptionPane.showInputDialog(null,
+				"Enter your Email",
+				"Email",
+				JOptionPane.INFORMATION_MESSAGE);
+		String parameters = "name=" + name + "&email=" + email;
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.ENCRYPT_MODE, aesSessionKey, ivParameterSpec);
 		byte[] encryptedParameters = cipher.doFinal(parameters.getBytes());
